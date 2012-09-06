@@ -1,6 +1,9 @@
-#Path to copy plugin on build
-win32:DLLDESTDIR       = ../vacuum-im/plugins
-unix:DESTDIR           = ../vacuum-im/plugins
+!macx:!isEmpty(DEBUG_VACUUM_PATH) {
+  VACUUM_SDK_PATH        = $$DEBUG_VACUUM_PATH/src
+  LIBS                  += -L$$DEBUG_VACUUM_PATH/src/libs
 
-#Path from vacumm to plugin resources
-DEFINES               += RESOURCES_DIR='\\\"../vacuum-plugins.$${TARGET}/resources\\\"'
+  win32:DLLDESTDIR       = $$DEBUG_VACUUM_PATH/plugins
+  unix:DESTDIR           = $$DEBUG_VACUUM_PATH/plugins
+
+  DEFINES               += DEBUG_RESOURCES_DIR='\\\"$${_PRO_FILE_PWD_}/resources\\\"'
+}
