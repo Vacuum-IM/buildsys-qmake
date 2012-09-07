@@ -2,7 +2,7 @@
 TEMPLATE            = lib
 CONFIG             += plugin
 LIBS               += -l$$VACUUM_UTILS_NAME
-LIBS               += -L$$INSTALL_LIBS
+LIBS               += -L$$VACUUM_LIB_PATH
 DEPENDPATH         += $$VACUUM_SDK_PATH
 INCLUDEPATH        += $$VACUUM_SDK_PATH
 
